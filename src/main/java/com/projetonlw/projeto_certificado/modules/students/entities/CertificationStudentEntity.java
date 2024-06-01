@@ -6,6 +6,8 @@ import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,6 +17,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,6 +25,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "certifications")
+@Builder
 public class CertificationStudentEntity {
     
     @Id
@@ -40,6 +44,7 @@ public class CertificationStudentEntity {
 
     @OneToMany
     @JoinColumn(name = "answer_certification_id", insertable = false, updatable = false)
+    @JsonManagedReference
     List<AnswersCertificationsEntity> answersCertificationsEntities;
 
     @CreationTimestamp
