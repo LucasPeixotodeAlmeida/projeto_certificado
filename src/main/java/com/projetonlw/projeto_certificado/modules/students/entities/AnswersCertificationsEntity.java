@@ -38,17 +38,17 @@ public class AnswersCertificationsEntity {
     @JoinColumn(name = "certification_id", insertable = false, updatable = false)
     @JsonBackReference
     private CertificationStudentEntity certificationStudentEntity;
-    
+
     @Column(name = "student_id")
     private UUID studentId;
 
     @ManyToOne
     @JoinColumn(name = "student_id", insertable = false, updatable = false)
     private StudentEntity studentEntity;
-    
+
     @Column(name = "question_id")
     private UUID questionId;
-    
+
     @Column(name = "answer_id")
     private UUID answerId;
 
@@ -57,5 +57,4 @@ public class AnswersCertificationsEntity {
 
     @CreationTimestamp
     private LocalDateTime createdAt;
-
 }

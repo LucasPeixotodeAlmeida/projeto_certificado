@@ -63,27 +63,27 @@ public class StudentCertificationAnswersService {
                         questionAnswer.setCorrect(false);
                     }
 
-                    var answerrsCertificationsEntity = AnswersCertificationsEntity.builder()
+                    var answersCertificationsEntity = AnswersCertificationsEntity.builder()
                             .answerId(questionAnswer.getAlternativeId())
                             .questionId(questionAnswer.getQuestionId())
                             .isCorrect(questionAnswer.isCorrect()).build();
 
-                    answersCertifications.add(answerrsCertificationsEntity);
+                    answersCertifications.add(answersCertificationsEntity);
                 });
 
         var student = studentRepository.findByEmail(dto.getEmail());
-        UUID studentID;
+        UUID studentId;
         if (student.isEmpty()) {
             var studentCreated = StudentEntity.builder().email(dto.getEmail()).build();
             studentCreated = studentRepository.save(studentCreated);
-            studentID = studentCreated.getId();
+            studentId = studentCreated.getId();
         } else {
-            studentID = student.get().getId();
+            studentId = student.get().getId();
         }
 
         CertificationStudentEntity certificationStudentEntity = CertificationStudentEntity.builder()
                 .technology(dto.getTechnology())
-                .id(studentID)
+                .studentId(studentId)
                 .grade(correctAnswers.get())
                 .build();
 

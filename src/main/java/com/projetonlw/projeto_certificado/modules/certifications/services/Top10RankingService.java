@@ -10,8 +10,10 @@ import com.projetonlw.projeto_certificado.modules.students.repositories.Certific
 
 
 
+
+
 @Service
-public class Top10RankingUseCase {
+public class Top10RankingService {
 
     @Autowired
     private CertificationStudentRepository certificationStudentRepository;

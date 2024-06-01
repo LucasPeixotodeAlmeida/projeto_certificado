@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projetonlw.projeto_certificado.modules.certifications.services.Top10RankingUseCase;
+import com.projetonlw.projeto_certificado.modules.certifications.services.Top10RankingService;
 import com.projetonlw.projeto_certificado.modules.students.entities.CertificationStudentEntity;
+
+
 
 
 
@@ -17,10 +19,10 @@ import com.projetonlw.projeto_certificado.modules.students.entities.Certificatio
 public class RankingController {
 
     @Autowired
-    private Top10RankingUseCase top10RankingUseCase;
+    private Top10RankingService top10RankingService;
 
     @GetMapping("/top10")
     public List<CertificationStudentEntity> top10() {
-        return this.top10RankingUseCase.execute();
+        return this.top10RankingService.execute();
     }
 }

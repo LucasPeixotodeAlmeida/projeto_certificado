@@ -12,8 +12,6 @@ import com.projetonlw.projeto_certificado.modules.students.dto.VerifyHasCertific
 import com.projetonlw.projeto_certificado.modules.students.services.StudentCertificationAnswersService;
 import com.projetonlw.projeto_certificado.modules.students.services.VerifyIfHasCertificationService;
 
-
-
 @RestController
 @RequestMapping("/students")
 public class StudentController {
@@ -23,14 +21,16 @@ public class StudentController {
 
     @Autowired
     private StudentCertificationAnswersService studentCertificationAnswersService;
-    
+
     @PostMapping("/verifyIfHasCertification")
-    public String verifyIfHasCertification(@RequestBody VerifyHasCertificationDTO verifyHasCertificationDTO){
+    public String verifyIfHasCertification(@RequestBody VerifyHasCertificationDTO verifyHasCertificationDTO) {
+
         var result = this.verifyIfHasCertificationService.execute(verifyHasCertificationDTO);
-        if(result){
-            return "usuario ja fez a prova";
+        if (result) {
+            return "Usuário já fez a prova";
         }
-        return "usuario pode fazer a prova";
+
+        return "Usuário pode fazer a prova";
     }
 
     @PostMapping("/certification/answer")

@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class QuestionAnswerDTO {
     private UUID questionId;
     private UUID alternativeId;
